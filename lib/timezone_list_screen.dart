@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:time_zone_app_starter/main.dart';
+
 import 'package:timezone/browser.dart';
 
 
