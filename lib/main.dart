@@ -1,10 +1,8 @@
 import 'package:flutter/material.dart';
-import 'package:flutter/rendering.dart';
 import 'package:flutter/services.dart';
-import 'package:time_zone_app_starter/timezone_list_screen.dart';
 import 'package:timezone/standalone.dart' as standalone;
 import 'package:timezone/timezone.dart';
-
+import 'timezone_list_screen.dart';
 void main() async {
   var byteData = await rootBundle.load('packages/timezone/data/2019b.tzf');
   initializeDatabase(byteData.buffer.asUint8List());
@@ -23,6 +21,7 @@ class HomeScreen extends StatefulWidget {
 }
 
 class _HomeScreenState extends State<HomeScreen> {
+  Map map;
   @override
   void initState() {
     print('hey');
@@ -32,6 +31,7 @@ class _HomeScreenState extends State<HomeScreen> {
   }
 
   Future<void> setup() async {
+    map = standalone.timeZoneDatabase.locations;
     print(standalone.timeZoneDatabase.locations);
   }
 
@@ -63,12 +63,10 @@ class _HomeScreenState extends State<HomeScreen> {
               padding:EdgeInsets.only(left: 30.0, right: 8, top: 24, bottom: 0),
               child: ListTile(
                 onTap: () {
-                  Navigator.push(
-                      context,
-                      MaterialPageRoute(
-                          builder: (context) => TimeZoneListScreen(
-                                timezones: standalone.timeZoneDatabase.locations,
-                              )));
+                  print('hey');
+                 Navigator.push(context, MaterialPageRoute(builder: (context){
+                  return  TimeZoneListScreen(timezones: map,) ;
+                 }));
                 },
                 title: Text(
                   'Region',

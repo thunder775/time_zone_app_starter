@@ -2,6 +2,8 @@ import 'package:flutter/material.dart';
 
 import 'package:timezone/browser.dart';
 
+import 'main.dart';
+
 
 class TimeZoneListScreen extends StatefulWidget {
   final Map timezones;
@@ -44,12 +46,12 @@ class _TimeZoneListScreenState extends State<TimeZoneListScreen> {
             child: ListTile(
                 onTap: () {
                   print('hey');
-//                        Navigator.pushReplacement(
-//                            context,
-//                            MaterialPageRoute(
-//                                builder: (context) => HomeScreen(
-//                                      currentLocation: listOfTimezones[index],
-//                                    )));
+                        Navigator.pushReplacement(
+                            context,
+                            MaterialPageRoute(
+                                builder: (context) => HomeScreen(
+                                      currentLocation: listOfTimezones[index],
+                                    )));
                 },
                 title: Text(
                   '${listOfTimezones[index]}',
